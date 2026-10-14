@@ -33,7 +33,26 @@ public class Cliente extends Persona{
         ListaVenta = listaVenta;
     }
 
-    //
+    //metodo para verificar una compra del cliente
+    public boolean verificarCompra(String codigo){
+        boolean existe= false;
+        for(Venta venta: ListaVenta){
+            if(venta.getCodigo().equalsIgnoreCase(codigo)){
+                existe= true;
+            }
+        }
+        return existe;
+    }
 
+    //metodo para agregar una compra del cliente
+    public boolean agregarCompra(Venta venta){
+        boolean compraAgregada= false;
+        boolean compraVerificada= verificarCompra(venta.getCodigo());
+        if(!compraVerificada){
+            ListaVenta.add(venta);
+            compraAgregada=true;
+        }
+        return compraAgregada;
+    }
 
 }
