@@ -1,5 +1,15 @@
 public enum CategoriaCliente {
-    BRONCE(5%),
-    PLATA(10%),
-    ORO(15%)
+    BRONCE(0.05),
+    PLATA(0.10),
+    ORO(0.15);
+
+    private double porcentajeDescuento;
+
+    //Constructor
+
+    CategoriaCliente(double porcentajeDescuento) {
+        this.porcentajeDescuento = porcentajeDescuento;
+    }
+
+    //Metodo
 }
