@@ -4,4 +4,5 @@ public enum CategoriaPrenda {
     VESTIDO,
     CHAQUETA,
     CALZADO,
+
 }

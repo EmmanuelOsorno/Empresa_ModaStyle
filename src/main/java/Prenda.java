@@ -6,4 +6,5 @@ public class Prenda {
     private CategoriaPrenda categoriaPrenda;
     private TallaPrenda tallaPrenda;
     private TallaCalzado tallaCalzado;
+
 }
