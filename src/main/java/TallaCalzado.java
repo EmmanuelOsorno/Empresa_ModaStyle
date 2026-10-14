@@ -16,6 +16,10 @@ public enum TallaCalzado {
         this.valor = valor;
     }
 
-    //Metodo
+    //get
 
+
+    public int getValor() {
+        return valor;
+    }
 }

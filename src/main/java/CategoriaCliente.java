@@ -12,4 +12,8 @@ public enum CategoriaCliente {
     }
 
     //Metodo
+
+    public double getPorcentajeDescuento() {
+        return porcentajeDescuento;
+    }
 }

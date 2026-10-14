@@ -14,6 +14,12 @@ public enum CategoriaPrenda {
     }
     //Metodo para obtener el porcentaje de recargo
 
+    public double getRecargo() {
+        return recargo;
+    }
+
+
+
 
 
 

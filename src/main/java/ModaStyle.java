@@ -1,4 +1,6 @@
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ModaStyle {
 
@@ -14,7 +16,8 @@ public class ModaStyle {
 
     //Constructor
 
-    public ModaStyle(String nombreComercial, String direccion, String NIT) {
+
+    public ModaStyle(String nombreComercial, String direccion, int NIT) {
         this.nombreComercial = nombreComercial;
         this.direccion = direccion;
         this.NIT = NIT;
@@ -28,29 +31,8 @@ public class ModaStyle {
         //GET Y SET
 
 
-        public String getNombreComercial () {
-            return nombreComercial;
-        }
-        public void setNombreComercial (String nombreComercial){
-            this.nombreComercial = nombreComercial;
-        }
 
-        public String getDireccion () {
-            return direccion;
-        }
 
-        public void setDireccion (String direccion){
-            this.direccion = direccion;
-        }
-
-        public int getNIT () {
-            return NIT;
-        }
-
-        public void setNIT ( int NIT){
-
-            this.NIT = NIT;
-        }
 
 
         //registrar una prenda

@@ -7,7 +7,7 @@ public class Prenda {
     private TallaPrenda tallaPrenda;
     private TallaCalzado tallaCalzado;
 
-    //
+    //constructor
     public Prenda(String codigo, String nombre, String marca, double precioUnitario, CategoriaPrenda categoriaPrenda, TallaPrenda tallaPrenda, TallaCalzado tallaCalzado) {
         this.codigo = codigo;
         this.nombre = nombre;
@@ -18,7 +18,7 @@ public class Prenda {
         this.tallaCalzado = tallaCalzado;
     }
 
-    //
+    //get y setter
     public String getCodigo() {
         return codigo;
     }
@@ -74,6 +74,7 @@ public class Prenda {
     public void setTallaCalzado(TallaCalzado tallaCalzado) {
         this.tallaCalzado = tallaCalzado;
     }
+
 
     //metodo calcular valor de prenda
     public double calcularPrecioPrenda(){
