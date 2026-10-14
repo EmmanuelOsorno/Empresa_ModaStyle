@@ -75,7 +75,7 @@ public class Prenda {
         this.tallaCalzado = tallaCalzado;
     }
 
-    //metodo calcular valor de prenda
+    //metodo calcular valor de prenda segun la categoria
     public double calcularPrecioPrenda(){
         double valorPrenda=precioUnitario+(precioUnitario*categoriaPrenda.getRecargo());
         return valorPrenda;

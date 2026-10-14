@@ -1,13 +1,20 @@
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Venta {
     private String codigo;
     private LocalDate fechaVenta;
+    private Cliente cliente;
 
+    private List<Prenda> ListaPrenda;
     //
-    public Venta(String codigo, LocalDate fechaVenta) {
+    public Venta(String codigo, LocalDate fechaVenta, Cliente cliente) {
         this.codigo = codigo;
         this.fechaVenta = fechaVenta;
+        this.cliente=cliente;
+
+        ListaPrenda=new ArrayList<>();
     }
 
     //
@@ -27,13 +34,29 @@ public class Venta {
         this.fechaVenta = fechaVenta;
     }
 
-    //
-
-    @Override
-    public String toString() {
-        return "Venta{" +
-                "codigo='" + codigo + '\'' +
-                ", fechaVenta=" + fechaVenta +
-                '}';
+    public Cliente getCliente() {
+        return cliente;
     }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public List<Prenda> getListaPrenda() {
+        return ListaPrenda;
+    }
+
+    public void setListaPrenda(List<Prenda> listaPrenda) {
+        ListaPrenda = listaPrenda;
+    }
+
+    // metodo para calcular el valor total de la venta con el descuento del cliente
+    public double calcularValorTotalVenta(){
+        double valorTotalVenta=0;
+        for(Prenda prenda:ListaPrenda){
+            valorTotalVenta+=prenda.calcularPrecioPrenda()-cliente.calcularPorcentajeDescuento();
+        }
+        return valorTotalVenta;
+    }
+
 }
