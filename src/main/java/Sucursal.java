@@ -3,14 +3,16 @@ import java.util.List;
 
 public class Sucursal {
 
-    private  String codigo;
+    private String codigo;
     private String nombre;
     private String direccion;
     private String ciudad;
 
-    private List<Inventario> listaInventario;
-    private List<Vendedor>listaVendedores;
-    private List<Venta> listaVentas;
+
+    //listas
+    private List<Inventario> ListaInventario;
+    private List<Vendedor> ListaVendedores;
+    private List<Venta> ListaVentas;
 
 
     //Constructor
@@ -23,13 +25,13 @@ public class Sucursal {
 
         //listas
 
-        listaInventario = new ArrayList<>();
-        listaVendedores = new ArrayList<>();
-        listaVentas = new ArrayList<>();
+        ListaInventario = new ArrayList<>();
+        ListaVendedores = new ArrayList<>();
+        ListaVentas = new ArrayList<>();
     }
 
 
-        //Get y setter
+    //Get y setter
 
     public String getCodigo() {
         return codigo;
@@ -64,41 +66,100 @@ public class Sucursal {
     }
 
     public List<Inventario> getListaInventario() {
-        return listaInventario;
+        return ListaInventario;
     }
 
     public void setListaInventario(List<Inventario> listaInventario) {
-        this.listaInventario = listaInventario;
+        this.ListaInventario = listaInventario;
     }
 
     public List<Vendedor> getListaVendedores() {
-        return listaVendedores;
+        return ListaVendedores;
     }
 
     public void setListaVendedores(List<Vendedor> listaVendedores) {
-        this.listaVendedores = listaVendedores;
+        this.ListaVendedores = listaVendedores;
     }
 
     public List<Venta> getListaVentas() {
-        return listaVentas;
+        return ListaVentas;
     }
 
     public void setListaVentas(List<Venta> listaVentas) {
-        this.listaVentas = listaVentas;
+        this.ListaVentas = listaVentas;
     }
+
+
+    //REVISAR COMO ESTA NOMBRANDO LAS VARIABLES
 
 
     //Registrar en inventario las prendas/agregar inventario
 
-        //consultar las prendas disponibles
+
+    public boolean agregarInventario(Inventario registroN) {
+        for (Inventario inventa : inventario) {
+            boolean mismaPrenda = inventa.getPrenda().getCodigoUnico().equalsIgnoreCase(registroN.getPrenda().getCodigoUnico());
+            boolean mismaTalla = inventa.getTalla().equalsIgnoreCase(registroN.getTalla());
+            boolean mismoColor = inventa.getColor().equalsIgnoreCase(registroN.getColor());
+
+            if (mismaPrenda && mismaTalla && mismoColor) {
+                System.out.println("Ya existe un registro de inventario para la prenda "
+                        + registroN.getPrenda().getCodigoUnico()
+                        + " en talla " + registroN.getTalla()
+                        + " y color " + registroN.getColor() + ".");
+                return false;
+            }
+        }
+        this.inventario.add(registroN);
+        return true;
+    }
+
+
+    //consultar las prendas disponibles
+
+    public List<Inventario> consultarPrendasDisponibles() {
+        List<Inventario> prendasDisponibles = new ArrayList<>();
+        for (Inventario inventa : inventario) {
+            if (inventa.getCantidadDisponible() > 0) {
+                prendasDisponibles.add(inventa);
+            }
+        }
+        return prendasDisponibles;
+    }
 
         //consultar prendas agotadas en la sucursal
 
+    public List<Inventario> consultarPrendasAgotadas() {
+        List<Inventario> agotado = new ArrayList<>();
+        for (Inventario inventa : inventario) {
+            if (inventa.getCantidadDisponible() == 0) {
+                agotado.add(inventa);
+            }
+        }
+        return agotado;
+    }
+
+
         //calcular los ingresos totales generados por la sucursal
 
+    public double calcularIngresosTotales() {
+        double totalIngresos = 0;
+        for (Venta venta : ventas) {
+            totalIngresos += venta.getValorTotal();
+        }
+        return totalIngresos;
+    }
 
-        //registrar vendedor?
-        //registrar venta confirmada?
+        //Agregar vendedor
+    public void agregarVendedor(Vendedor vendedor) {
+            this.vendedor.add(vendedor);
+    }
+
+
+    //Agregar  venta confirmada
+    public void agregarVenta(Venta venta) {
+        this.venta.add(venta);
+    }
 
 
 
