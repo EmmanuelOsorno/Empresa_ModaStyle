@@ -12,25 +12,30 @@ public class Aplicacion {
 
             System.out.println("----- CLIENTES -----");
             System.out.println("1. Agregar cliente");
+            System.out.println("2. Mostrar cliente");
 
             System.out.println("----- EMPLEADOS -----");
-            System.out.println("2. Agregar empleado");
+            System.out.println("3. Agregar empleado");
+            System.out.println("4. Mostrar empleados");
 
             System.out.println("----- PRENDAS -----");
-            System.out.println("3. Agregar prenda");
-            System.out.println("4. Mostrar prendas de una sucursal");
-            System.out.println("5. Mostrar prendas agotadas");
+            System.out.println("5. Agregar prenda");
+            System.out.println("6. Mostrar prendas");
+            System.out.println("7. Mostrar prendas de una sucursal");
+            System.out.println("8. Mostrar prendas agotadas");
 
             System.out.println("----- SUCURSALES -----");
-            System.out.println("6. Agregar sucursal");
-            System.out.println("7. Mostrar ingresos generados por sucursal");
+            System.out.println("9. Agregar sucursal");
+            System.out.println("10. Mostrar sucursales");
+            System.out.println("11. Mostrar ingresos generados por sucursal");
 
             System.out.println("----- VENTAS -----");
-            System.out.println("8. Agregar venta");
-            System.out.println("9. Mostrar valor unitario total de la venta");
-            System.out.println("10. Mostrar ventas realizadas por vendedor");
-            System.out.println("11. Mostrar compras realizadas por un cliente");
-            System.out.println("12. Mostrar la prenda más vendida de toda la empresa");
+            System.out.println("12. Agregar venta");
+            System.out.println("13. Mostrar ventas");
+            System.out.println("14. Mostrar valor unitario total de la venta");
+            System.out.println("15. Mostrar ventas realizadas por vendedor");
+            System.out.println("16. Mostrar compras realizadas por un cliente");
+            System.out.println("17. Mostrar la prenda más vendida de toda la empresa");
 
             System.out.println("0. Salir del Menú");
 
@@ -73,6 +78,15 @@ public class Aplicacion {
                     break;
 
                 case 2:
+                    System.out.println("----- CLIENTES -----");
+
+                    for(Cliente ListaCliente: ModaStyle.getListaCliente()){
+                        System.out.println(ListaCliente);
+                    }
+
+                    break;
+
+                case 3:
                     System.out.println("----- EMPLEADOS -----");
 
 
@@ -114,7 +128,16 @@ public class Aplicacion {
 
                     break;
 
-                case 3:
+                case 4:
+                    System.out.println("----- EMPLEADOS -----");
+
+                    for(Empleado ListaEmpleado: ModaStyle.getListaEmpleado()){
+                        System.out.println(ListaEmpleado);
+                    }
+
+                    break;
+
+                case 5:
                     System.out.println("----- PRENDAS -----");
 
 
@@ -150,20 +173,28 @@ public class Aplicacion {
 
                     break;
 
-                case 4:
-                    System.out.println("----- PRENDAS -----");
-
-
-
-                    break;
-
-                case 5:
-                    System.out.println("----- PRENDAS -----");
-
-
-                    break;
-
                 case 6:
+                    System.out.println("----- PRENDAS -----");
+
+                    for(Prenda ListaPrenda: ModaStyle.getListaPrenda()){
+                        System.out.println(ListaPrenda);
+                    }
+
+                    break;
+
+                case 7:
+                    System.out.println("----- PRENDAS -----");
+
+
+                    break;
+
+                case 8:
+                    System.out.println("----- PRENDAS -----");
+
+
+                    break;
+
+                case 9:
                     System.out.println("----- SUCURSALES -----");
 
                     System.out.print("Código de sucursal: ");
@@ -189,13 +220,22 @@ public class Aplicacion {
 
                     break;
 
-                case 7:
+                case 10:
+                    System.out.println("----- SUCURSALES -----");
+
+                    for(Sucursal ListaSucursal: ModaStyle.getListaSucursal()){
+                        System.out.println(ListaSucursal);
+                    }
+
+                    break;
+
+                case 11:
                     System.out.println("----- SUCURSALES -----");
 
 
                     break;
 
-                case 8:
+                case 12:
                     System.out.println("----- VENTAS -----");
 
                     System.out.print("Código de venta: ");
@@ -244,29 +284,39 @@ public class Aplicacion {
 
                     break;
 
-                case 9:
+                case 13:
+                    System.out.println("----- VENTAS -----");
+
+                    for(Venta ListaVenta: ModaStyle.getListaVenta()){
+                        System.out.println(ListaVenta);
+                    }
+
+                    break;
+
+                case 14:
                     System.out.println("----- VENTAS -----");
 
 
                     break;
 
-                case 10:
+                case 15:
                     System.out.println("----- VENTAS -----");
 
 
                     break;
 
-                case 11:
+                case 16:
                     System.out.println("----- VENTAS -----");
 
 
                     break;
 
-                case 12:
+                case 17:
                     System.out.println("----- VENTAS -----");
 
 
                     break;
+
 
                 case 0:
                     System.out.println("Menú cerrado");
