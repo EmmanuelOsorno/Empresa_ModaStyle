@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Sucursal {
 
@@ -8,7 +9,7 @@ public class Sucursal {
     private String ciudad;
 
     private List<Inventario> listaInventario;
-    private List<vendedor>listaVendedores;
+    private List<Vendedor>listaVendedores;
     private List<Venta> listaVentas;
 
 
@@ -21,15 +22,73 @@ public class Sucursal {
         this.ciudad = ciudad;
 
         //listas
-        listainventario = new ArrayList<>();
-        listavendedores = new ArrayList<>();
-        listaventas = new ArrayList<>();
+
+        listaInventario = new ArrayList<>();
+        listaVendedores = new ArrayList<>();
+        listaVentas = new ArrayList<>();
+    }
 
 
         //Get y setter
 
+    public String getCodigo() {
+        return codigo;
+    }
 
-        //Registrar en inventario las prendas/agregar inventario
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public List<Inventario> getListaInventario() {
+        return listaInventario;
+    }
+
+    public void setListaInventario(List<Inventario> listaInventario) {
+        this.listaInventario = listaInventario;
+    }
+
+    public List<Vendedor> getListaVendedores() {
+        return listaVendedores;
+    }
+
+    public void setListaVendedores(List<Vendedor> listaVendedores) {
+        this.listaVendedores = listaVendedores;
+    }
+
+    public List<Venta> getListaVentas() {
+        return listaVentas;
+    }
+
+    public void setListaVentas(List<Venta> listaVentas) {
+        this.listaVentas = listaVentas;
+    }
+
+
+    //Registrar en inventario las prendas/agregar inventario
 
         //consultar las prendas disponibles
 
@@ -42,7 +101,7 @@ public class Sucursal {
         //registrar venta confirmada?
 
 
-    }
+
 
 
 }
