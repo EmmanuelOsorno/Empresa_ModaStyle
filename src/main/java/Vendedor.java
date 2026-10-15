@@ -11,8 +11,9 @@ public class Vendedor extends Persona {
     private Sucursal sucursalElegida;
 
     //constructor
-    public Vendedor(int documento, String nombre, String correo, int telefono, String codigoEmpleado, LocalDate fechaContratacion,double salarioSucursal, sucursalElegida) {
+    public Vendedor(int documento, String nombre, String correo, int telefono, String codigoEmpleado, LocalDate fechaContratacion,double salario,Sucursal sucursalElegida) {
         super(documento, nombre, correo, telefono);
+
         this.codigoEmpleado = codigoEmpleado;
         this.fechaContratacion= fechaContratacion;
         this.salario= salario;

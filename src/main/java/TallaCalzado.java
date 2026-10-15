@@ -18,7 +18,6 @@ public enum TallaCalzado {
 
     //get
 
-
     public int getValor() {
         return valor;
     }

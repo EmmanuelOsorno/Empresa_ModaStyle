@@ -13,7 +13,6 @@ public enum CategoriaPrenda {
         this.recargo = recargo;
     }
     //Metodo para obtener el porcentaje de recargo
-
     public double getRecargo() {
         return recargo;
     }
