@@ -50,13 +50,13 @@ public class Venta {
         ListaPrenda = listaPrenda;
     }
 
-    // metodo para calcular el valor total de la venta con el descuento del cliente
-    public double calcularValorTotalVenta(){
-        double valorTotalVenta=0;
+    // metodo para calcular el valor unitario total de la venta con el descuento del cliente
+    public double calcularValorUnitarioTotalVenta(){
+        double valorUnitarioTotalVenta=0;
         for(Prenda prenda:ListaPrenda){
-            valorTotalVenta+=prenda.calcularPrecioPrenda()-cliente.calcularPorcentajeDescuento();
+            valorUnitarioTotalVenta+=prenda.calcularPrecioPrenda()-cliente.calcularPorcentajeDescuento();
         }
-        return valorTotalVenta;
+        return valorUnitarioTotalVenta;
     }
 
 }
