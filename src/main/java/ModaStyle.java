@@ -13,6 +13,7 @@ public class ModaStyle {
     private List<Prenda> ListaPrendas;
     private List<Cliente> ListaCliente;
     private List<Empleado> ListaEmpleado;
+    private List<Venta> ListaVenta;
 
 
 
@@ -30,6 +31,7 @@ public class ModaStyle {
         ListaPrendas = new ArrayList<>();
         ListaCliente= new ArrayList<>();
         ListaEmpleado= new ArrayList<>();
+        ListaVenta=new ArrayList<>();
 
 
     }
@@ -92,7 +94,13 @@ public class ModaStyle {
         this.ListaEmpleado = listaEmpleado;
     }
 
+    public List<Venta> getListaVenta() {
+        return ListaVenta;
+    }
 
+    public void setListaVenta(List<Venta> listaVenta) {
+        ListaVenta = listaVenta;
+    }
     //metodo para verificar cliente
 
     public boolean verificarCliente (int documento){
@@ -164,6 +172,29 @@ public class ModaStyle {
         }
         ListaSucursales.add(sucursal);
         return true;
+    }
+
+    //metodo para verificar venta
+    public boolean verificarVenta(String codigo) {
+        boolean existe = false;
+        for(Venta venta : ListaVenta) {
+            if(venta.getCodigo().equalsIgnoreCase(codigo)) {
+                existe = true;
+                break;
+            }
+        }
+        return existe;
+    }
+
+    //metodo para agregar venta
+    public boolean agregarVenta(Venta venta) {
+        boolean agregado = false;
+        boolean existe = verificarVenta(venta.getCodigo());
+        if(existe == false) {
+            ListaVenta.add(venta);
+            agregado = true;
+        }
+        return agregado;
     }
 
     //identificar la referencia de prenda con mayor ventas

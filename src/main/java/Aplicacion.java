@@ -198,6 +198,49 @@ public class Aplicacion {
                 case 8:
                     System.out.println("----- VENTAS -----");
 
+                    System.out.print("Código de venta: ");
+                    String codigoVenta = scanner.nextLine();
+
+                    System.out.print("Fecha de la venta: ");
+                    System.out.print("Ingrese el año: ");
+                    int añoVenta = scanner.nextInt();
+                    System.out.print("Ingrese el mes: ");
+                    int mesVenta = scanner.nextInt();
+                    System.out.print("Ingrese el dia: ");
+                    int diaVenta = scanner.nextInt();
+                    LocalDate fechaVenta = LocalDate.of(añoVenta, mesVenta, diaVenta);
+
+                    System.out.print("Cliente: ");
+
+                    System.out.print("Documento: ");
+                    int documento2 = scanner.nextInt();
+
+                    System.out.print("Nombre: ");
+                    String nombre2 = scanner.nextLine();
+
+                    System.out.print("Correo: ");
+                    String correo2 = scanner.nextLine();
+
+                    System.out.print("Teléfono: ");
+                    int telefono2 = scanner.nextInt();
+
+                    System.out.print("Codigo de afiliacion: ");
+                    String codigoAfiliacion2 = scanner.nextLine();
+
+                    System.out.println("Categoria del ciente: ");
+                    CategoriaCliente categoriaCliente2= CategoriaCliente.valueOf(scanner.nextLine());
+
+                    Cliente clienteDeVenta=new Cliente(documento2,nombre2,correo2,telefono2,codigoAfiliacion2,categoriaCliente2);
+
+
+                    Venta venta= new Venta (codigoVenta, fechaVenta, clienteDeVenta);
+
+                    if(ModaStyle.agregarVenta(venta)) {
+                        System.out.println("Venta agregada correctamente");
+                    }
+                    else {
+                        System.out.println("La Venta no pudo agregarse");
+                    }
 
                     break;
 
