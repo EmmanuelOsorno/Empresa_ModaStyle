@@ -11,7 +11,7 @@ public class Sucursal {
 
     //listas
     private List<Inventario> ListaInventario;
-    private List<Vendedor> ListaVendedores;
+    private List<Empleado> ListaVendedores;
     private List<Venta> ListaVentas;
 
 
@@ -73,11 +73,11 @@ public class Sucursal {
         this.ListaInventario = listaInventario;
     }
 
-    public List<Vendedor> getListaVendedores() {
+    public List<Empleado> getListaVendedores() {
         return ListaVendedores;
     }
 
-    public void setListaVendedores(List<Vendedor> listaVendedores) {
+    public void setListaVendedores(List<Empleado> listaVendedores) {
         this.ListaVendedores = listaVendedores;
     }
 
@@ -150,8 +150,8 @@ public class Sucursal {
     }
 
     //Agregar vendedor
-    public void agregarVendedor(Vendedor vendedor) {
-        this.ListaVendedores.add(vendedor);
+    public void agregarVendedor(Empleado empleado) {
+        this.ListaVendedores.add(empleado);
     }
 
 
