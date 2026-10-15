@@ -90,27 +90,26 @@ public class Sucursal {
     }
 
 
-    //REVISAR COMO ESTA NOMBRANDO LAS VARIABLES
-
 
     //Registrar en inventario las prendas/agregar inventario
+    //CORCHADA CON LA PARTE DE TALLA=RELACIÓN DE LOS ENUM TALLA
 
 
     public boolean agregarInventario(Inventario registroN) {
-        for (Inventario inventa : inventario) {
-            boolean mismaPrenda = inventa.getPrenda().getCodigoUnico().equalsIgnoreCase(registroN.getPrenda().getCodigoUnico());
+        for (Inventario inventa : ListaInventario) {
+            boolean mismaPrenda = inventa.getPrenda().getCodigo().equalsIgnoreCase(registroN.getPrenda().getCodigo());
             boolean mismaTalla = inventa.getTalla().equalsIgnoreCase(registroN.getTalla());
             boolean mismoColor = inventa.getColor().equalsIgnoreCase(registroN.getColor());
 
             if (mismaPrenda && mismaTalla && mismoColor) {
                 System.out.println("Ya existe un registro de inventario para la prenda "
-                        + registroN.getPrenda().getCodigoUnico()
+                        + registroN.getPrenda().getCodigo()
                         + " en talla " + registroN.getTalla()
                         + " y color " + registroN.getColor() + ".");
                 return false;
             }
         }
-        this.inventario.add(registroN);
+        this.ListaInventario.add(registroN);
         return true;
     }
 
@@ -119,7 +118,7 @@ public class Sucursal {
 
     public List<Inventario> consultarPrendasDisponibles() {
         List<Inventario> prendasDisponibles = new ArrayList<>();
-        for (Inventario inventa : inventario) {
+        for (Inventario inventa : ListaInventario) {
             if (inventa.getCantidadDisponible() > 0) {
                 prendasDisponibles.add(inventa);
             }
@@ -127,11 +126,11 @@ public class Sucursal {
         return prendasDisponibles;
     }
 
-        //consultar prendas agotadas en la sucursal
+    //consultar prendas agotadas en la sucursal
 
     public List<Inventario> consultarPrendasAgotadas() {
         List<Inventario> agotado = new ArrayList<>();
-        for (Inventario inventa : inventario) {
+        for (Inventario inventa : ListaInventario) {
             if (inventa.getCantidadDisponible() == 0) {
                 agotado.add(inventa);
             }
@@ -140,29 +139,25 @@ public class Sucursal {
     }
 
 
-        //calcular los ingresos totales generados por la sucursal
+    //calcular los ingresos totales generados por la sucursal
 
     public double calcularIngresosTotales() {
         double totalIngresos = 0;
-        for (Venta venta : ventas) {
-            totalIngresos += venta.getValorTotal();
+        for (Venta venta : ListaVentas) {
+            totalIngresos += venta.getvalorTotalVenta();//Falta en clase de venta
         }
         return totalIngresos;
     }
 
-        //Agregar vendedor
+    //Agregar vendedor
     public void agregarVendedor(Vendedor vendedor) {
-            this.vendedor.add(vendedor);
+        this.ListaVendedores.add(vendedor);
     }
 
 
     //Agregar  venta confirmada
     public void agregarVenta(Venta venta) {
-        this.venta.add(venta);
+        this.ListaVentas.add(venta);
     }
-
-
-
-
 
 }

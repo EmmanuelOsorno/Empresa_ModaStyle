@@ -4,8 +4,8 @@ public class Prenda {
     private String marca;
     private double precioUnitario;
     private CategoriaPrenda categoriaPrenda;
-    private TallaPrenda tallaPrenda;
-    private TallaCalzado tallaCalzado;
+    private TallaPrenda tallaPrenda;//
+    private TallaCalzado tallaCalzado;//
 
     //constructor
     public Prenda(String codigo, String nombre, String marca, double precioUnitario, CategoriaPrenda categoriaPrenda, TallaPrenda tallaPrenda, TallaCalzado tallaCalzado) {

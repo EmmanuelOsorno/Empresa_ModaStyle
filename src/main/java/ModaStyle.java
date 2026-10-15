@@ -144,25 +144,32 @@ public class ModaStyle {
 
     }
 
-
-
-
-
     //Agregar una prenda
 
-
+    public boolean agregarPrenda(Prenda nuevaPrenda) {
+        for (Prenda p : ListaPrendas) {
+            if (p.getCodigo().equalsIgnoreCase(nuevaPrenda.getCodigo())) {
+                System.out.println("Ya existe una prenda con el código " + nuevaPrenda.getCodigo());
+                return false;
+            }
+        }
+        ListaPrendas.add(nuevaPrenda);
+        return true;
+    }
 
     //agregar una nueva sucursal
-
+    public boolean agregarSucursal(Sucursal sucursal) {
+        for (Sucursal su : ListaSucursales) {
+            if (su.getCodigo().equalsIgnoreCase(sucursal.getCodigo())) {
+                System.out.println(" Ya existe una sucursal con el código " + sucursal.getCodigo());
+                return false;
+            }
+        }
+        ListaSucursales.add(sucursal);
+        return true;
+    }
 
     //identificar la referencia de prenda con mayor ventas
-
-
-
-
-
-
-
 
 
 

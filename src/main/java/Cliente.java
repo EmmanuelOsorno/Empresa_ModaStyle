@@ -4,13 +4,16 @@ import java.util.List;
 public class Cliente extends Persona{
     private String codigoAfiliacion;
 
+    private CategoriaCliente categoriaCliente;
+
     //
     private List<Venta> ListaVenta;
 
     //
-    public Cliente(int documento, String nombre, String correo, int telefono, String codigoAfiliacion) {
+    public Cliente(int documento, String nombre, String correo, int telefono, String codigoAfiliacion, CategoriaCliente categoriaCliente) {
         super(documento, nombre, correo, telefono);
         this.codigoAfiliacion = codigoAfiliacion;
+        this.categoriaCliente=categoriaCliente;
 
         ListaVenta=new ArrayList<>();
 
@@ -23,6 +26,14 @@ public class Cliente extends Persona{
 
     public void setCodigoAfiliacion(String codigoAfiliacion) {
         this.codigoAfiliacion = codigoAfiliacion;
+    }
+
+    public CategoriaCliente getCategoriaCliente() {
+        return categoriaCliente;
+    }
+
+    public void setCategoriaCliente(CategoriaCliente categoriaCliente) {
+        this.categoriaCliente = categoriaCliente;
     }
 
     public List<Venta> getListaVenta() {
@@ -54,5 +65,12 @@ public class Cliente extends Persona{
         }
         return compraAgregada;
     }
+
+    //metodo para obtener el porcentaje de descuento segun la categoria del cliente
+    public double calcularPorcentajeDescuento(){
+        double descuento=categoriaCliente.getPorcentajeDescuento();
+        return descuento;
+    }
+
 
 }

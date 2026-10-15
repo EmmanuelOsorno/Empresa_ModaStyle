@@ -56,6 +56,26 @@ public class Empleado extends Persona{
         ListaVenta = listaVenta;
     }
 
-    //
+    //metodo para verificar una venta del empleado
+    public boolean verificaVenta(String codigo){
+        boolean existe= false;
+        for(Venta venta: ListaVenta){
+            if(venta.getCodigo().equalsIgnoreCase(codigo)){
+                existe= true;
+            }
+        }
+        return existe;
+    }
+
+    //metodo para agregar una venta al empleado
+    public boolean agregarVenta(Venta venta){
+        boolean ventaAgregada= false;
+        boolean ventaVerificada= verificaVenta(venta.getCodigo());
+        if(!ventaVerificada){
+            ListaVenta.add(venta);
+            ventaAgregada=true;
+        }
+        return ventaAgregada;
+    }
 
 }

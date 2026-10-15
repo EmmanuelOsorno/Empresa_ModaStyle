@@ -3,6 +3,8 @@ import java.util.List;
 
 public class Inventario {
 
+
+    private String color;
     private int cantidadDisponible;
 
 
@@ -10,9 +12,11 @@ public class Inventario {
     private Prenda prenda;
     private Sucursal sucursal;
 
+    //Lista
     List<Venta> ListaVenta;
 
-    public Inventario(int cantidadDisponible, Prenda prenda, Sucursal sucursal) {
+    public Inventario(String color,int cantidadDisponible, Prenda prenda, Sucursal sucursal) {
+        this.color= color;
         this.cantidadDisponible= cantidadDisponible;
         this.prenda = prenda;
         this.sucursal = sucursal;
@@ -22,6 +26,14 @@ public class Inventario {
 
     //get y setter
 
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
 
     public int getCantidadDisponible() {
         return cantidadDisponible;
