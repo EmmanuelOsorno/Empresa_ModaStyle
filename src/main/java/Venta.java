@@ -7,17 +7,21 @@ public class Venta {
     private LocalDate fechaVenta;
     private Cliente cliente;
 
-    //Vendedor?
-    //crear una lista de venta...
+    private double valorTotalVenta;
+
 
     private List<Prenda> ListaPrenda;
+    private List<Inventario>ListaInventario;
+
     //
-    public Venta(String codigo, LocalDate fechaVenta, Cliente cliente) {
+    public Venta(String codigo, LocalDate fechaVenta, Cliente cliente, double valorTotalVenta) {
         this.codigo = codigo;
         this.fechaVenta = fechaVenta;
         this.cliente=cliente;
+        this.valorTotalVenta= valorTotalVenta;
 
         ListaPrenda=new ArrayList<>();
+        ListaInventario= new ArrayList<>();
     }
 
     //
@@ -45,6 +49,13 @@ public class Venta {
         this.cliente = cliente;
     }
 
+    public double getValorTotalVenta() {
+        return valorTotalVenta;
+    }
+    public void setValorTotalVenta(double valorTotalVenta) {
+        this.valorTotalVenta = valorTotalVenta;
+    }
+
     public List<Prenda> getListaPrenda() {
         return ListaPrenda;
     }
@@ -53,11 +64,37 @@ public class Venta {
         ListaPrenda = listaPrenda;
     }
 
+    public List<Inventario> getListaInventario() {
+        return ListaInventario;
+    }
+
+    public void setListaInventario(List<Inventario> listaInventario) {
+        ListaInventario = listaInventario;
+    }
+    //obtener cantidad prenda
+
+    public int obtenerCantidadPrenda(Inventario inventario) {
+        int total = 0;
+
+        for (Inventario i : ListaInventario) {
+            if (i == inventario) {
+                total += i.getCantidadDisponible();
+            }
+        }
+
+        return total;
+    }
+
+
+
     // metodo para calcular el valor unitario total de la venta con el descuento del cliente
     public double calcularValorUnitarioTotalVenta(){
         double valorUnitarioTotalVenta=0;
-        for(Prenda prenda:ListaPrenda){
-            valorUnitarioTotalVenta+=prenda.calcularPrecioPrenda()-cliente.calcularPorcentajeDescuento();
+        for (Prenda prenda : ListaPrenda) {
+            double precio = prenda.calcularPrecioPrenda();
+            double descuento = cliente.calcularPorcentajeDescuento();
+
+            valorUnitarioTotalVenta += precio - (precio * descuento);
         }
         return valorUnitarioTotalVenta;
     }

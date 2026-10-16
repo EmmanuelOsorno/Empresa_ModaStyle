@@ -2,13 +2,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cliente extends Persona{
+
     private String codigoAfiliacion;
-
     private CategoriaCliente categoriaCliente;
-
     //
     private List<Venta> ListaVenta;
-
     //
     public Cliente(int documento, String nombre, String correo, int telefono, String codigoAfiliacion, CategoriaCliente categoriaCliente) {
         super(documento, nombre, correo, telefono);

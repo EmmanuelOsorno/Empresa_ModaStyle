@@ -11,9 +11,8 @@ public class Sucursal {
 
     //listas
     private List<Inventario> ListaInventario;
-    private List<Vendedor> ListaVendedores;
+    private List<Empleado> ListaEmpleados;
     private List<Venta> ListaVentas;
-
 
     //Constructor
 
@@ -26,7 +25,7 @@ public class Sucursal {
         //listas
 
         ListaInventario = new ArrayList<>();
-        ListaVendedores = new ArrayList<>();
+        ListaEmpleados = new ArrayList<>();
         ListaVentas = new ArrayList<>();
     }
 
@@ -73,12 +72,12 @@ public class Sucursal {
         this.ListaInventario = listaInventario;
     }
 
-    public List<Vendedor> getListaVendedores() {
-        return ListaVendedores;
+    public List<Empleado> getListaEmpleados() {
+        return ListaEmpleados;
     }
 
-    public void setListaVendedores(List<Vendedor> listaVendedores) {
-        this.ListaVendedores = listaVendedores;
+    public void setListaEmpleados(List<Empleado> listaEmpleados) {
+        ListaEmpleados = listaEmpleados;
     }
 
     public List<Venta> getListaVentas() {
@@ -90,10 +89,7 @@ public class Sucursal {
     }
 
 
-
     //Registrar en inventario las prendas/agregar inventario
-    //CORCHADA CON LA PARTE DE TALLA=RELACIÓN DE LOS ENUM TALLA
-
 
     public boolean agregarInventario(Inventario registroN) {
         for (Inventario inventa : ListaInventario) {
@@ -112,6 +108,8 @@ public class Sucursal {
         this.ListaInventario.add(registroN);
         return true;
     }
+
+    //obtener cantidad prenda
 
 
     //consultar las prendas disponibles
@@ -144,21 +142,13 @@ public class Sucursal {
     public double calcularIngresosTotales() {
         double totalIngresos = 0;
         for (Venta venta : ListaVentas) {
-            totalIngresos += venta.getvalorTotalVenta();//Falta en clase de venta
+            totalIngresos += venta.getValorTotalVenta();
         }
         return totalIngresos;
     }
 
-    //Agregar vendedor
-    public void agregarVendedor(Vendedor vendedor) {
-        this.ListaVendedores.add(vendedor);
-    }
-
-
-    //Agregar  venta confirmada
-    public void agregarVenta(Venta venta) {
-        this.ListaVentas.add(venta);
-    }
-
-
 }
+
+
+
+
