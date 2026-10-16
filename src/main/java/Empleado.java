@@ -54,6 +54,7 @@ public class Empleado extends Persona{
         ListaVenta = listaVenta;
     }
 
+
     //metodo para verificar una venta del empleado
     public static boolean verificaVenta(String codigo){
         boolean existe= false;
