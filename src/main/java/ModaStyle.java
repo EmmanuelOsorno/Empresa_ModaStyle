@@ -216,12 +216,22 @@ public class ModaStyle {
         return agregado;
     }
 
-    //identificar la referencia de prenda con mayor ventas
-    //Buscar como hacerlo
-
-
-
-
+    //toString
+    @Override
+    public String toString() {
+        return "ModaStyle {" +
+                "nombreComercial='" + nombreComercial + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", NIT=" + NIT +
+                ", Sucursales registradas=" + ListaSucursales +
+                ", Prendas registradas=" + ListaPrendas +
+                ", Clientes registrados=" + ListaCliente +
+                ", Empleados registrados=" + ListaEmpleado +
+                ", Ventas registradas=" + ListaVenta +
+                ", Prendas registrados=" + ListaEmpleado +
+                ", Sucursales registradas=" + ListaVenta +
+                '}';
+    }
 
 
 }

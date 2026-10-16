@@ -160,5 +160,17 @@ public class Sucursal {
         this.ListaVentas.add(venta);
     }
 
-
+    //toString
+    @Override
+    public String toString() {
+        return "Sucursal{" +
+                "codigo='" + codigo + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", ciudad='" + ciudad + '\'' +
+                ", ListaInventario=" + ListaInventario +
+                ", ListaVendedores=" + ListaVendedores +
+                ", ListaVentas=" + ListaVentas +
+                '}';
+    }
 }

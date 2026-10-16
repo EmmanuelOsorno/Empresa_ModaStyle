@@ -83,4 +83,17 @@ public class Inventario {
         }
         return false;
     }
+
+    //toString
+
+    @Override
+    public String toString() {
+        return "Inventario{" +
+                "color='" + color + '\'' +
+                ", cantidadDisponible=" + cantidadDisponible +
+                ", prenda=" + prenda +
+                ", sucursal=" + sucursal +
+                ", ListaVenta=" + ListaVenta +
+                '}';
+    }
 }
