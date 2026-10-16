@@ -12,8 +12,6 @@ public class Empleado extends Persona{
     private static List<Venta> ListaVenta;
 
     //
-
-
     public Empleado(int documento, String nombre, String correo, int telefono, String codigoEmpleado, LocalDate fechaContratacion, double salario) {
         super(documento, nombre, correo, telefono);
         this.codigoEmpleado = codigoEmpleado;
