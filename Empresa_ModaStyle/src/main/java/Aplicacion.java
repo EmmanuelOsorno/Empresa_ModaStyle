@@ -358,6 +358,39 @@ public class Aplicacion {
 
                 case 14:
                     System.out.println("----- VENTAS -----");
+                    System.out.println("----- VENTAS POR VENDEDOR -----");
+
+                    System.out.println("Documento del vendedor:");
+                    int documentoVendedor  = scanner.nextInt();
+                    scanner.nextLine();
+
+                    Empleado empleadoEncontrado = null;
+
+                    for (Empleado empleadoActual : ModaStyle.getListaEmpleado()) {
+                        if (empleadoActual.getDocumento() == documentoVendedor) {
+                            empleadoEncontrado = empleadoActual;
+                            break;
+                        }
+                    }
+
+                    if (empleadoEncontrado == null) {
+                        System.out.println("No se encontró el vendedor.");
+                    } else if (empleadoEncontrado.getListaVenta().isEmpty()) {
+                        System.out.println("El empleado no tiene ventas registradas.");
+                    } else {
+                        System.out.println(
+                                "Ventas realizadas por: " +
+                                        empleadoEncontrado.getNombre()
+                        );
+
+                        for (Venta ventaBuscada : empleadoEncontrado.getListaVenta()) {
+                            System.out.println(
+                                    "Código: " + ventaBuscada.getCodigo() +
+                                            " - Fecha: " + ventaBuscada.getFechaVenta() +
+                                            " - Total: $" + ventaBuscada.getValorTotalVenta()
+                            );
+                        }
+                    }
 
 
                     break;
