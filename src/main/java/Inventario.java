@@ -89,7 +89,7 @@ public class Inventario {
     @Override
     public String toString() {
         return "Inventario{" +
-                "color='" + color + '\'' +
+                "color='" + color  +
                 ", cantidadDisponible=" + cantidadDisponible +
                 ", prenda=" + prenda +
                 ", sucursal=" + sucursal +

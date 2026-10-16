@@ -201,9 +201,9 @@ public class ModaStyle {
     @Override
     public String toString() {
         return "ModaStyle {" +
-                "nombreComercial='" + nombreComercial + '\'' +
-                ", direccion='" + direccion + '\'' +
-                ", NIT=" + NIT +
+                "nombreComercial='" + nombreComercial +
+                ", direccion='" + direccion +
+                ", NIT=" + NIT + "\n"+
                 ", Sucursales registradas=" + ListaSucursales +
                 ", Prendas registradas=" + ListaPrendas +
                 ", Clientes registrados=" + ListaCliente +
