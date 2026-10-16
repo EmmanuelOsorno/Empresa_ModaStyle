@@ -9,7 +9,7 @@ public class Empleado extends Persona{
     private double salario;
 
     //
-    private List<Venta> ListaVenta;
+    private static List<Venta> ListaVenta;
 
     //
 
@@ -48,16 +48,16 @@ public class Empleado extends Persona{
         this.salario = salario;
     }
 
-    public List<Venta> getListaVenta() {
+    public static List<Venta> getListaVenta() {
         return ListaVenta;
     }
 
-    public void setListaVenta(List<Venta> listaVenta) {
+    public static void setListaVenta(List<Venta> listaVenta) {
         ListaVenta = listaVenta;
     }
 
     //metodo para verificar una venta del empleado
-    public boolean verificaVenta(String codigo){
+    public static boolean verificaVenta(String codigo){
         boolean existe= false;
         for(Venta venta: ListaVenta){
             if(venta.getCodigo().equalsIgnoreCase(codigo)){
@@ -68,7 +68,7 @@ public class Empleado extends Persona{
     }
 
     //metodo para agregar una venta al empleado
-    public boolean agregarVenta(Venta venta){
+    public static boolean agregarVenta(Venta venta){
         boolean ventaAgregada= false;
         boolean ventaVerificada= verificaVenta(venta.getCodigo());
         if(!ventaVerificada){
