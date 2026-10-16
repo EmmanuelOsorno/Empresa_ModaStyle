@@ -19,7 +19,6 @@ public class ModaStyle {
 
     //Constructor
 
-
     public ModaStyle(String nombreComercial, String direccion, int NIT) {
         this.nombreComercial = nombreComercial;
         this.direccion = direccion;
@@ -31,106 +30,108 @@ public class ModaStyle {
         ListaPrendas = new ArrayList<>();
         ListaCliente = new ArrayList<>();
         ListaEmpleado = new ArrayList<>();
-        ListaVenta = new ArrayList<>();
+        ListaVenta= new ArrayList<>();
+
 
 
     }
 
     //GET Y SET
 
-    public String getNombreComercial() {
+    public static String getNombreComercial() {
         return nombreComercial;
     }
 
-    public void setNombreComercial(String nombreComercial) {
-        this.nombreComercial = nombreComercial;
+    public static void setNombreComercial(String nombreComercial) {
+        ModaStyle.nombreComercial = nombreComercial;
     }
 
-    public String getDireccion() {
+    public static String getDireccion() {
         return direccion;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public static void setDireccion(String direccion) {
+        ModaStyle.direccion = direccion;
     }
 
-    public int getNIT() {
+    public static int getNIT() {
         return NIT;
     }
 
-    public void setNIT(int NIT) {
-        this.NIT = NIT;
+    public static void setNIT(int NIT) {
+        ModaStyle.NIT = NIT;
     }
 
-    public List<Sucursal> getListaSucursales() {
+    public static List<Sucursal> getListaSucursales() {
         return ListaSucursales;
     }
 
-    public void setListaSucursales(List<Sucursal> listaSucursales) {
-        this.ListaSucursales = listaSucursales;
+    public static void setListaSucursales(List<Sucursal> listaSucursales) {
+        ListaSucursales = listaSucursales;
     }
 
-    public List<Prenda> getListaPrendas() {
+    public static List<Prenda> getListaPrendas() {
         return ListaPrendas;
     }
 
-    public void setListaPrendas(List<Prenda> listaPrendas) {
-        this.ListaPrendas = listaPrendas;
+    public static void setListaPrendas(List<Prenda> listaPrendas) {
+        ListaPrendas = listaPrendas;
     }
 
     public static List<Cliente> getListaCliente() {
         return ListaCliente;
     }
 
-    public void setListaCliente(List<Cliente> listaCliente) {
-        this.ListaCliente = listaCliente;
+    public static void setListaCliente(List<Cliente> listaCliente) {
+        ListaCliente = listaCliente;
     }
 
     public static List<Empleado> getListaEmpleado() {
         return ListaEmpleado;
     }
 
-    public void setListaEmpleado(List<Empleado> listaEmpleado) {
-        this.ListaEmpleado = listaEmpleado;
+    public static void setListaEmpleado(List<Empleado> listaEmpleado) {
+        ListaEmpleado = listaEmpleado;
     }
 
     public static List<Venta> getListaVenta() {
         return ListaVenta;
     }
 
-    public void setListaVenta(List<Venta> listaVenta) {
+    public static void setListaVenta(List<Venta> listaVenta) {
         ListaVenta = listaVenta;
     }
-
     //metodo para verificar cliente
-    public static boolean verificarCliente (int documento){
-        boolean existe=false;
-        for(Cliente cliente: ListaCliente){
-            if(cliente.getDocumento()==documento){
-                existe=true;
+
+    public static boolean verificarCliente(int documento) {
+        boolean existe = false;
+        for (Cliente cliente : ListaCliente) {
+            if (cliente.getDocumento() == documento) {
+                existe = true;
                 break;
             }
         }
         return existe;
     }
 
+
     //metodo para agregar cliente
-    public static boolean agregarCliente (Cliente cliente){
-        boolean agregado=false;
-        boolean existe=verificarCliente(cliente.getDocumento());
-        if(existe==false){
+    public static boolean agregarCliente(Cliente cliente) {
+        boolean agregado = false;
+        boolean existe = verificarCliente(cliente.getDocumento());
+        if (existe == false) {
             ListaCliente.add(cliente);
-            agregado=true;
+            agregado = true;
         }
         return agregado;
     }
 
     //metodo para verificar empleado
-    public static boolean verificarEmpleado (int documento){
-        boolean existe=false;
-        for(Empleado empleado: ListaEmpleado){
-            if(empleado.getDocumento()==documento){
-                existe=true;
+    public static boolean verificarEmpleado(int documento) {
+        boolean existe = false;
+        for (Empleado empleado : ListaEmpleado) {
+            if (empleado.getDocumento() == documento) {
+                existe = true;
                 break;
             }
         }
@@ -138,18 +139,15 @@ public class ModaStyle {
     }
 
     //metodo para agregar empleado
-    public static boolean agregarEmpleado(Empleado empleado){
-        boolean agregado=false;
-        boolean existe=verificarEmpleado(empleado.getDocumento());
-        if(existe==false){
+    public static boolean agregarEmpleado(Empleado empleado) {
+        boolean agregado = false;
+        boolean existe = verificarEmpleado(empleado.getDocumento());
+        if (existe == false) {
             ListaEmpleado.add(empleado);
-            agregado=true;
+            agregado = true;
         }
         return agregado;
     }
-
-
-    //Agregar una prenda
 
     public static boolean agregarPrenda(Prenda nuevaPrenda) {
         for (Prenda p : ListaPrendas) {
@@ -162,7 +160,7 @@ public class ModaStyle {
         return true;
     }
 
-    //agregar una nueva sucursal
+    //agregar una  sucursal
     public static boolean agregarSucursal(Sucursal sucursal) {
         for (Sucursal su : ListaSucursales) {
             if (su.getCodigo().equalsIgnoreCase(sucursal.getCodigo())) {
@@ -174,27 +172,29 @@ public class ModaStyle {
         return true;
     }
 
-    //metodo para verificar venta
-    public static boolean verificarVenta(String codigo) {
-        boolean existe = false;
-        for(Venta venta : ListaVenta) {
-            if(venta.getCodigo().equalsIgnoreCase(codigo)) {
-                existe = true;
-                break;
+
+    //identificar la referencia de prenda con mayor ventas
+
+    public static Prenda buscarPrendaMasVendida() {
+
+        Prenda prendaMasVendida = null;
+        int mayorCantidad = 0;
+
+        for (Sucursal sucursal : ListaSucursales) {
+
+            for (Inventario inventario : sucursal.getListaInventario()) {
+
+                int unidadesVendidas = inventario.calcularUnidadesVendidas();
+
+                if (unidadesVendidas > mayorCantidad) {
+
+                    mayorCantidad = unidadesVendidas;
+                    prendaMasVendida = inventario.getPrenda();
+                }
             }
         }
-        return existe;
-    }
 
-    //metodo para agregar venta
-    public static boolean agregarVenta(Venta venta) {
-        boolean agregado = false;
-        boolean existe = verificarVenta(venta.getCodigo());
-        if(existe == false) {
-            ListaVenta.add(venta);
-            agregado = true;
-        }
-        return agregado;
+        return prendaMasVendida;
     }
 
     //toString
@@ -211,6 +211,5 @@ public class ModaStyle {
                 ", Ventas registradas=" + ListaVenta +
                 '}';
     }
-
 
 }

@@ -4,38 +4,37 @@ import java.util.Scanner;
 public class Aplicacion {
     public static void main (String[] args) {
         Scanner scanner = new Scanner(System.in);
-
-
+        ModaStyle modaStyle= new ModaStyle("ModaStyle","Armenia,Quindío",1090275723);
         int opcion;
+
         do {
             System.out.println("\nMenú\n=====MODASTYLE=====");
 
             System.out.println("----- CLIENTES -----");
-            System.out.println("1. Agregar cliente");
-            System.out.println("2. Mostrar cliente");
+            System.out.println("1. Agregar cliente");//si
+            System.out.println("2. Mostrar cliente");//si
 
             System.out.println("----- EMPLEADOS -----");
-            System.out.println("3. Agregar empleado");
-            System.out.println("4. Mostrar empleados");
+            System.out.println("3. Agregar empleado");//si
+            System.out.println("4. Mostrar empleados");//si
 
             System.out.println("----- PRENDAS -----");
-            System.out.println("5. Agregar prenda");
-            System.out.println("6. Mostrar prendas");
-            System.out.println("7. Mostrar prendas de una sucursal");
-            System.out.println("8. Mostrar prendas agotadas");
+            System.out.println("5. Agregar prenda");//si
+            System.out.println("6. Mostrar prendas");//si
+            System.out.println("7. Mostrar prendas de una sucursal");//si
+            System.out.println("8. Mostrar prendas agotadas");//si
 
             System.out.println("----- SUCURSALES -----");
-            System.out.println("9. Agregar sucursal");
-            System.out.println("10. Mostrar sucursales");
-            System.out.println("11. Mostrar ingresos generados por sucursal");
+            System.out.println("9. Agregar sucursal");//si
+            System.out.println("10. Mostrar sucursales");//si
+            System.out.println("11. Mostrar ingresos generados por sucursal");//si
 
             System.out.println("----- VENTAS -----");
-            System.out.println("12. Agregar venta");
-            System.out.println("13. Mostrar ventas");
-            System.out.println("14. Mostrar valor unitario total de la venta");
-            System.out.println("15. Mostrar ventas realizadas por vendedor");
-            System.out.println("16. Mostrar compras realizadas por un cliente");
-            System.out.println("17. Mostrar la prenda más vendida de toda la empresa");
+            System.out.println("12. Registrar venta");//si
+            System.out.println("13. Mostrar ventas");//si
+            System.out.println("14. Mostrar ventas realizadas por vendedor");// si
+            System.out.println("15. Mostrar compras realizadas por un cliente");//si
+            System.out.println("16. Mostrar la prenda más vendida de toda la empresa");//si
 
             System.out.println("0. Salir del Menú");
 
@@ -50,6 +49,7 @@ public class Aplicacion {
 
                     System.out.print("Documento: ");
                     int documento = scanner.nextInt();
+                    scanner.nextLine();
 
                     System.out.print("Nombre: ");
                     String nombre = scanner.nextLine();
@@ -59,28 +59,28 @@ public class Aplicacion {
 
                     System.out.print("Teléfono: ");
                     int telefono = scanner.nextInt();
+                    scanner.nextLine();
 
                     System.out.print("Codigo de afiliacion: ");
                     String codigoAfiliacion = scanner.nextLine();
 
                     System.out.println("Categoria del ciente: ");
-                    CategoriaCliente categoriaCliente= CategoriaCliente.valueOf(scanner.nextLine());
+                    CategoriaCliente categoriaCliente = CategoriaCliente.valueOf(scanner.nextLine());//diferencia
 
-                    Cliente cliente = new Cliente(documento, nombre, correo, telefono, codigoAfiliacion,categoriaCliente);
+                    Cliente cliente = new Cliente(documento, nombre, correo, telefono, codigoAfiliacion, categoriaCliente);
 
-                    if(ModaStyle.agregarCliente(cliente)) {
+                    if (ModaStyle.agregarCliente(cliente)) {
                         System.out.println("Cliente agregado correctamente");
-                    }
-                    else {
+                    } else {
                         System.out.println("El cliente ya existe");
                     }
 
                     break;
 
                 case 2:
-                    System.out.println("----- CLIENTES -----");
+                    System.out.println("----- CLIENTES -----");//Si da error se elimina
 
-                    for(Cliente ListaCliente: ModaStyle.getListaCliente()){
+                    for (Cliente ListaCliente : ModaStyle.getListaCliente()) { // acá lo relaciona con modaStyle
                         System.out.println(ListaCliente);
                     }
 
@@ -90,8 +90,9 @@ public class Aplicacion {
                     System.out.println("----- EMPLEADOS -----");
 
 
-                    System.out.print("Documento: ");
-                    int documentoEmpleado = scanner.nextInt();
+                    System.out.print("Documento de empleado: ");
+                    int documentoEmpleado = scanner.nextInt();//esta solo documento
+                    scanner.nextLine();
 
                     System.out.print("Nombre: ");
                     String nombreEmpleado = scanner.nextLine();
@@ -101,6 +102,7 @@ public class Aplicacion {
 
                     System.out.print("Teléfono: ");
                     int telefonoEmpleado = scanner.nextInt();
+                    scanner.nextLine();
 
                     System.out.print("Codigo de empleado: ");
                     String codigoEmpleado = scanner.nextLine();
@@ -113,23 +115,24 @@ public class Aplicacion {
                     System.out.print("Ingrese el dia: ");
                     int dia = scanner.nextInt();
                     LocalDate fechaContratacion = LocalDate.of(año, mes, dia);
+                    scanner.nextLine();
 
                     System.out.print("Salario: ");
                     double salario = scanner.nextDouble();
+                    scanner.nextLine();
 
-                    Empleado empleado=new Empleado(documentoEmpleado,nombreEmpleado,correoEmpleado,telefonoEmpleado,codigoEmpleado,fechaContratacion,salario );
+                    Empleado empleado = new Empleado(documentoEmpleado, nombreEmpleado, correoEmpleado, telefonoEmpleado, codigoEmpleado, fechaContratacion, salario);
 
-                    if(ModaStyle.agregarEmpleado(empleado)) {
+                    if (ModaStyle.agregarEmpleado(empleado)) {
                         System.out.println("Empleado agregado correctamente");
-                    }
-                    else {
+                    } else {
                         System.out.println("El empleado ya existe");
                     }
 
                     break;
 
                 case 4:
-                    System.out.println("----- EMPLEADOS -----");
+                    System.out.println("----- EMPLEADOS -----");//diferencia
 
                     for(Empleado ListaEmpleado: ModaStyle.getListaEmpleado()){
                         System.out.println(ListaEmpleado);
@@ -152,38 +155,92 @@ public class Aplicacion {
 
                     System.out.print("Precio unitario de la prenda: ");
                     double precioUnitario = scanner.nextDouble();
+                    scanner.nextLine();
 
-                    System.out.print("Categoria de la prenda: ");
-                    CategoriaPrenda categoriaPrenda= CategoriaPrenda.valueOf(scanner.nextLine());
+                    System.out.print("Seleccione la ctegoria de la prenda: ");
 
-                    System.out.print("Talla de la prenda: ");
-                    TallaPrenda tallaPrenda=TallaPrenda.valueOf(scanner.nextLine());
+                    CategoriaPrenda[] categorias = CategoriaPrenda.values();
 
-                    System.out.print("Talla del calzado: ");
-                    TallaCalzado tallaCalzado=TallaCalzado.valueOf(scanner.nextLine());
-
-                    Prenda prenda=new Prenda(codigo, nombrePrenda, marca, precioUnitario, categoriaPrenda, tallaPrenda, tallaCalzado);
-
-                    if(ModaStyle.agregarPrenda(prenda)) {
-                        System.out.println("Prenda agregada correctamente");
+                    for (int i = 0; i < categorias.length; i++) {
+                        System.out.println((i + 1) + ". " + categorias[i]);
                     }
-                    else {
-                        System.out.println("La prenda ya existe");
+
+                    System.out.print("Opción categoría: ");
+                    int opcionCategoria = scanner.nextInt();
+
+                    scanner.nextLine();
+
+                    CategoriaPrenda categoriaPrenda = categorias[opcionCategoria - 1];
+
+                    TallaPrenda tallaPrenda = null;
+                    TallaCalzado tallaCalzado = null;
+
+                    if (categoriaPrenda == CategoriaPrenda.CALZADO) {
+
+                        System.out.println("\nSeleccione talla de calzado:");
+
+                        TallaCalzado[] tallasCalzado = TallaCalzado.values();
+
+                        for (int i = 0; i < tallasCalzado.length; i++) {
+                            System.out.println((i + 1) + ". " + tallasCalzado[i]);
+                        }
+
+                        System.out.print("Opción talla: ");
+                        int opcionTalla = scanner.nextInt();
+
+                        scanner.nextLine();
+
+                        tallaCalzado = tallasCalzado[opcionTalla - 1];
+
+                    } else {
+
+                        System.out.println("\nSeleccione talla de prenda:");
+
+                        TallaPrenda[] tallasPrenda = TallaPrenda.values();
+
+                        for (int i = 0; i < tallasPrenda.length; i++) {
+                            System.out.println((i + 1) + ". " + tallasPrenda[i]);
+                        }
+
+                        System.out.print("Opción talla: ");
+                        int opcionTalla = scanner.nextInt();
+
+                        scanner.nextLine();
+
+                        tallaPrenda = tallasPrenda[opcionTalla - 1];
+                    }
+
+                    Prenda prenda = new Prenda(
+                            codigo,
+                            nombrePrenda,
+                            marca,
+                            precioUnitario,
+                            categoriaPrenda,
+                            tallaPrenda,
+                            tallaCalzado
+                    );
+
+                    if (ModaStyle.agregarPrenda(prenda)) {
+                        System.out.println("Prenda agregada correctamente.");
+                    } else {
+                        System.out.println("Ya existe una prenda con ese código.");
                     }
 
                     break;
 
                 case 6:
-                    System.out.println("----- PRENDAS -----");
+                    System.out.println("----- PRENDAS -----");//diferencia
 
-                    for(Prenda ListaPrenda: ModaStyle.getListaPrenda()){
-                        System.out.println(ListaPrenda);
+                    for(Prenda ListaPrendas: ModaStyle.getListaPrendas()){
+                        System.out.println(ListaPrendas);
                     }
 
                     break;
 
                 case 7:
                     System.out.println("----- PRENDAS -----");
+
+
 
 
                     break;
@@ -221,27 +278,28 @@ public class Aplicacion {
                     break;
 
                 case 10:
-                    System.out.println("----- SUCURSALES -----");
+                    System.out.println("----- SUCURSALES -----");//diferencia
 
-                    for(Sucursal ListaSucursal: ModaStyle.getListaSucursal()){
-                        System.out.println(ListaSucursal);
+                    for(Sucursal ListaSucursales: ModaStyle.getListaSucursales()){
+                        System.out.println(ListaSucursales);
                     }
 
                     break;
 
                 case 11:
-                    System.out.println("----- SUCURSALES -----");
-
-
+                    for (Sucursal sucursalIngresos : ModaStyle.getListaSucursales()) {
+                        System.out.println(sucursalIngresos.getNombre() + " - Ingresos: $" + sucursalIngresos.calcularIngresosTotales());
+                    }
                     break;
 
-                case 12:
+                case 12://FALTA
                     System.out.println("----- VENTAS -----");
 
                     System.out.print("Código de venta: ");
                     String codigoVenta = scanner.nextLine();
 
-                    System.out.print("Fecha de la venta: ");
+                    System.out.println("Fecha de la venta:");
+
                     System.out.print("Ingrese el año: ");
                     int añoVenta = scanner.nextInt();
                     System.out.print("Ingrese el mes: ");
@@ -249,11 +307,14 @@ public class Aplicacion {
                     System.out.print("Ingrese el dia: ");
                     int diaVenta = scanner.nextInt();
                     LocalDate fechaVenta = LocalDate.of(añoVenta, mesVenta, diaVenta);
+                    scanner.nextLine(); //limbiar buffer
 
-                    System.out.print("Cliente: ");
+                    System.out.println("Informacion del cliente que realiza la venta:");
+
 
                     System.out.print("Documento: ");
                     int documento2 = scanner.nextInt();
+                    scanner.nextLine(); //limpiar buffer
 
                     System.out.print("Nombre: ");
                     String nombre2 = scanner.nextLine();
@@ -263,19 +324,20 @@ public class Aplicacion {
 
                     System.out.print("Teléfono: ");
                     int telefono2 = scanner.nextInt();
+                    scanner.nextLine();
 
                     System.out.print("Codigo de afiliacion: ");
                     String codigoAfiliacion2 = scanner.nextLine();
 
-                    System.out.println("Categoria del ciente: ");
+                    System.out.print("Categoria del ciente: ");
                     CategoriaCliente categoriaCliente2= CategoriaCliente.valueOf(scanner.nextLine());
 
                     Cliente clienteDeVenta=new Cliente(documento2,nombre2,correo2,telefono2,codigoAfiliacion2,categoriaCliente2);
 
+                    double valorTotalVenta = 0.0;// provicional
+                    Venta venta= new Venta (codigoVenta, fechaVenta, clienteDeVenta, valorTotalVenta);//a codigo le quite venta(no sirvio)
 
-                    Venta venta= new Venta (codigoVenta, fechaVenta, clienteDeVenta);
-
-                    if(ModaStyle.agregarVenta(venta)) {
+                    if(Empleado.agregarVenta(venta)) {
                         System.out.println("Venta agregada correctamente");
                     }
                     else {
@@ -285,13 +347,14 @@ public class Aplicacion {
                     break;
 
                 case 13:
-                    System.out.println("----- VENTAS -----");
+                    System.out.println("----- VENTAS -----");//diferente
 
                     for(Venta ListaVenta: ModaStyle.getListaVenta()){
                         System.out.println(ListaVenta);
                     }
 
                     break;
+
 
                 case 14:
                     System.out.println("----- VENTAS -----");
@@ -301,21 +364,45 @@ public class Aplicacion {
 
                 case 15:
                     System.out.println("----- VENTAS -----");
+                    System.out.println("Documento del cliente:");
+                    int documentoCliente = scanner.nextInt();
+                    scanner.nextLine();
 
+                    Cliente clienteEncontrado = null;
 
+                    for (Cliente clienteActual : ModaStyle.getListaCliente()) {
+                        if (clienteActual.getDocumento() == documentoCliente) {
+                            clienteEncontrado = clienteActual;
+                            break;
+                        }
+                    }
+
+                    if (clienteEncontrado == null) {
+                        System.out.println("No se encontró el cliente.");
+                    } else if (clienteEncontrado.getListaVenta().isEmpty()) {
+                        System.out.println("El cliente no tiene compras registradas.");
+                    } else {
+                        for (Venta ventaRealizada : clienteEncontrado.getListaVenta()) { //por ahora voy a deja venta así
+                            System.out.println(ventaRealizada.getCodigo() + " - " + ventaRealizada.getFechaVenta() + " - Total: $" + ventaRealizada.getValorTotalVenta());
+                        }
+                    }
                     break;
 
                 case 16:
                     System.out.println("----- VENTAS -----");
+                    Prenda prendaMasVendida = ModaStyle.buscarPrendaMasVendida();
 
-
+                    if (prendaMasVendida == null) {
+                        System.out.println("Todavía no hay ventas registradas.");
+                    } else {
+                        System.out.println(
+                                "Prenda más vendida: " +
+                                        prendaMasVendida.getNombre() +
+                                        " - Código: " + prendaMasVendida.getCodigo()
+                        );
+                    }
                     break;
 
-                case 17:
-                    System.out.println("----- VENTAS -----");
-
-
-                    break;
 
 
                 case 0:

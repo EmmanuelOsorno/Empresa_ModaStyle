@@ -71,4 +71,16 @@ public class Cliente extends Persona{
         return descuento;
     }
 
+    //toString
+
+    @Override
+    public String toString() {
+        return "Cliente " + getNombre()+
+                "\ndocumento: "+ getDocumento()+
+                "\ncorreo: "+getCorreo()+
+                "\ntelefono: "+getTelefono()+
+                "\ncodigoAfiliacion='" + codigoAfiliacion + '\'' +
+                "\ncategoriaCliente=" + categoriaCliente +
+                "\nListaVenta=" + ListaVenta+"\n";
+    }
 }

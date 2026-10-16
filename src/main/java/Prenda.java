@@ -81,4 +81,17 @@ public class Prenda {
         return valorPrenda;
     }
 
+    //toString
+
+
+    @Override
+    public String toString() {
+        return "Prenda " + codigo +
+                "\nnombre: " + nombre +
+                "\nmarca: '" + marca +
+                "\nprecioUnitario: " + precioUnitario +
+                "\ncategoriaPrenda: " + categoriaPrenda +
+                "\ntallaPrenda: " + tallaPrenda +
+                "\ntallaCalzado: " + tallaCalzado +"\n";
+    }
 }

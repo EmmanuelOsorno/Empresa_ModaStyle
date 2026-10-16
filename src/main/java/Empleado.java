@@ -77,4 +77,17 @@ public class Empleado extends Persona{
         return ventaAgregada;
     }
 
+    //toString
+
+
+    @Override
+    public String toString() {
+        return "Empleado " + getNombre()+
+                "\ndocumento: "+getDocumento()+
+                "\ncorreo: "+getCorreo()+
+                "\ntelefono: "+getTelefono()+
+                "\ncodigoEmpleado='" + codigoEmpleado +
+                "\nfechaContratacion=" + fechaContratacion +
+                "\nsalario=" + salario +"\n";
+    }
 }
