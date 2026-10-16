@@ -157,7 +157,7 @@ public class Aplicacion {
                     double precioUnitario = scanner.nextDouble();
                     scanner.nextLine();
 
-                    System.out.print("Seleccione la ctegoria de la prenda: ");
+                    System.out.print("Seleccione la categoria de la prenda: \n");
 
                     CategoriaPrenda[] categorias = CategoriaPrenda.values();
 
@@ -177,7 +177,7 @@ public class Aplicacion {
 
                     if (categoriaPrenda == CategoriaPrenda.CALZADO) {
 
-                        System.out.println("\nSeleccione talla de calzado:");
+                        System.out.println("Seleccione talla de calzado:");
 
                         TallaCalzado[] tallasCalzado = TallaCalzado.values();
 

@@ -1,5 +1,4 @@
 public enum TallaCalzado {
-    NO_ES_CALZADO,
     TALLA_35,
     TALLA_36,
     TALLA_37,
