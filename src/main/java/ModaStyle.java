@@ -14,8 +14,7 @@ public class ModaStyle {
     private static List<Cliente> ListaCliente;
     private static List<Empleado> ListaEmpleado;
     private static List<Venta> ListaVenta;
-    private static List<Prenda> ListaPrenda;
-    private static List<Sucursal> ListaSucursal;
+
 
 
     //Constructor
@@ -33,8 +32,6 @@ public class ModaStyle {
         ListaCliente = new ArrayList<>();
         ListaEmpleado = new ArrayList<>();
         ListaVenta = new ArrayList<>();
-        ListaPrendas=new ArrayList<>();
-        ListaSucursal=new ArrayList<>();
 
 
     }
@@ -103,22 +100,6 @@ public class ModaStyle {
 
     public void setListaVenta(List<Venta> listaVenta) {
         ListaVenta = listaVenta;
-    }
-
-    public static List<Prenda> getListaPrenda() {
-        return ListaPrenda;
-    }
-
-    public static void setListaPrenda(List<Prenda> listaPrenda) {
-        ListaPrenda = listaPrenda;
-    }
-
-    public static List<Sucursal> getListaSucursal() {
-        return ListaSucursal;
-    }
-
-    public static void setListaSucursal(List<Sucursal> listaSucursal) {
-        ListaSucursal = listaSucursal;
     }
 
     //metodo para verificar cliente
@@ -228,8 +209,6 @@ public class ModaStyle {
                 ", Clientes registrados=" + ListaCliente +
                 ", Empleados registrados=" + ListaEmpleado +
                 ", Ventas registradas=" + ListaVenta +
-                ", Prendas registrados=" + ListaEmpleado +
-                ", Sucursales registradas=" + ListaVenta +
                 '}';
     }
 
