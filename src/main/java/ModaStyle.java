@@ -3,18 +3,17 @@ import java.util.List;
 
 public class ModaStyle {
 
-    private String nombreComercial;
-    private String direccion;
-    private int NIT;
+    private static String nombreComercial;
+    private static String direccion;
+    private static int NIT;
 
     //listas
 
-    private List<Sucursal> ListaSucursales;
-    private List<Prenda> ListaPrendas;
-    private List<Cliente> ListaCliente;
-    private List<Empleado> ListaEmpleado;
-    private List<Venta> ListaVenta;
-
+    private static List<Sucursal> ListaSucursales;
+    private static List<Prenda> ListaPrendas;
+    private static List<Cliente> ListaCliente;
+    private static List<Empleado> ListaEmpleado;
+    private static List<Venta> ListaVenta;
 
 
     //Constructor
@@ -29,9 +28,9 @@ public class ModaStyle {
 
         ListaSucursales = new ArrayList<>();
         ListaPrendas = new ArrayList<>();
-        ListaCliente= new ArrayList<>();
-        ListaEmpleado= new ArrayList<>();
-        ListaVenta=new ArrayList<>();
+        ListaCliente = new ArrayList<>();
+        ListaEmpleado = new ArrayList<>();
+        ListaVenta = new ArrayList<>();
 
 
     }
@@ -78,7 +77,7 @@ public class ModaStyle {
         this.ListaPrendas = listaPrendas;
     }
 
-    public List<Cliente> getListaCliente() {
+    public static List<Cliente> getListaCliente() {
         return ListaCliente;
     }
 
@@ -86,7 +85,7 @@ public class ModaStyle {
         this.ListaCliente = listaCliente;
     }
 
-    public List<Empleado> getListaEmpleado() {
+    public static List<Empleado> getListaEmpleado() {
         return ListaEmpleado;
     }
 
@@ -94,16 +93,16 @@ public class ModaStyle {
         this.ListaEmpleado = listaEmpleado;
     }
 
-    public List<Venta> getListaVenta() {
+    public static List<Venta> getListaVenta() {
         return ListaVenta;
     }
 
     public void setListaVenta(List<Venta> listaVenta) {
         ListaVenta = listaVenta;
     }
-    //metodo para verificar cliente
 
-    public boolean verificarCliente (int documento){
+    //metodo para verificar cliente
+    public static boolean verificarCliente (int documento){
         boolean existe=false;
         for(Cliente cliente: ListaCliente){
             if(cliente.getDocumento()==documento){
@@ -115,7 +114,7 @@ public class ModaStyle {
     }
 
     //metodo para agregar cliente
-    public boolean agregarCliente (Cliente cliente){
+    public static boolean agregarCliente (Cliente cliente){
         boolean agregado=false;
         boolean existe=verificarCliente(cliente.getDocumento());
         if(existe==false){
@@ -126,7 +125,7 @@ public class ModaStyle {
     }
 
     //metodo para verificar empleado
-    public boolean verificarEmpleado (int documento){
+    public static boolean verificarEmpleado (int documento){
         boolean existe=false;
         for(Empleado empleado: ListaEmpleado){
             if(empleado.getDocumento()==documento){
@@ -138,7 +137,7 @@ public class ModaStyle {
     }
 
     //metodo para agregar empleado
-    public boolean agregarEmpleado(Empleado empleado){
+    public static boolean agregarEmpleado(Empleado empleado){
         boolean agregado=false;
         boolean existe=verificarEmpleado(empleado.getDocumento());
         if(existe==false){
@@ -151,7 +150,7 @@ public class ModaStyle {
 
     //Agregar una prenda
 
-    public boolean agregarPrenda(Prenda nuevaPrenda) {
+    public static boolean agregarPrenda(Prenda nuevaPrenda) {
         for (Prenda p : ListaPrendas) {
             if (p.getCodigo().equalsIgnoreCase(nuevaPrenda.getCodigo())) {
                 System.out.println("Ya existe una prenda con el código " + nuevaPrenda.getCodigo());
@@ -163,7 +162,7 @@ public class ModaStyle {
     }
 
     //agregar una nueva sucursal
-    public boolean agregarSucursal(Sucursal sucursal) {
+    public static boolean agregarSucursal(Sucursal sucursal) {
         for (Sucursal su : ListaSucursales) {
             if (su.getCodigo().equalsIgnoreCase(sucursal.getCodigo())) {
                 System.out.println(" Ya existe una sucursal con el código " + sucursal.getCodigo());
@@ -175,7 +174,7 @@ public class ModaStyle {
     }
 
     //metodo para verificar venta
-    public boolean verificarVenta(String codigo) {
+    public static boolean verificarVenta(String codigo) {
         boolean existe = false;
         for(Venta venta : ListaVenta) {
             if(venta.getCodigo().equalsIgnoreCase(codigo)) {
@@ -187,7 +186,7 @@ public class ModaStyle {
     }
 
     //metodo para agregar venta
-    public boolean agregarVenta(Venta venta) {
+    public static boolean agregarVenta(Venta venta) {
         boolean agregado = false;
         boolean existe = verificarVenta(venta.getCodigo());
         if(existe == false) {
